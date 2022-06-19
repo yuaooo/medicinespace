@@ -2063,7 +2063,7 @@
         .linkWidth(link => highlightLinks.has(link) ? link.value*link.value*2 : 0.5)
         .linkDirectionalParticles(link => highlightLinks.has(link) ? 2 : 0)
         .linkDirectionalParticleWidth(3)
-        .onNodeHover(node => {
+        .onNodeClick(node => {
           // Aim at node from outside it
           const distance = 100;
           const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
@@ -2078,7 +2078,7 @@
             5000  // ms transition duration
           );
         })
-        .onNodeClick(node => {
+        .onNodeHover(node => {
           // no state change
           if ((!node && !highlightNodes.size) || (node && hoverNode === node)) return;
           highlightNodes.clear();
