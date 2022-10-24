@@ -2,6 +2,11 @@
   <meta charset="utf-8">
 	<title>中药星河</title>
   <style> body { margin: 0; } </style>
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three/examples/js/postprocessing/Pass.js"></script>
+  <script src="//unpkg.com/three/examples/js/shaders/CopyShader.js"></script>
+  <script src="//unpkg.com/three/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  <script src="//unpkg.com/three/examples/js/postprocessing/UnrealBloomPass.js"></script>
 
   <script src="//unpkg.com/3d-force-graph"></script>
 <!--  <script src="../../dist/3d-force-graph.js"></script>-->
@@ -32,12 +37,8 @@
 <body>
   <div class="logo"></div>
   <div id="3d-graph"></div>
-  <script type="module">
-    import { UnrealBloomPass } from '//cdn.skypack.dev/three@0.136/examples/jsm/postprocessing/UnrealBloomPass.js';
-
-    //for(var i=0; i<gData["nodes"].length; i++) {
-    //    console.log(gData["nodes"][i]["id"])
-    //}
+  <script>
+    
     const gData = {
       nodes: [
         {id:1, group:1,name:"阿魏", val:1,colortype:3},
@@ -2116,7 +2117,7 @@
           updateHighlight();
         });
     
-    const bloomPass = new UnrealBloomPass();
+    const bloomPass = new THREE.UnrealBloomPass();
     bloomPass.strength = 1.2;
     bloomPass.radius = 0.5;
     bloomPass.threshold = 0.1;
